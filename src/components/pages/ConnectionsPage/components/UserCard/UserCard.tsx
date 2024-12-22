@@ -4,11 +4,11 @@ import React from "react";
 import { UserCardProps } from "./UserCard.types";
 
 const UserCard = (props: UserCardProps) => {
-  const { onClick, handleOnEdit, data } = props;
+  const { onClick, handleOnEdit, data, innerRef } = props;
 
   return (
     <Card className="min-w-min" onClick={() => onClick(data.id)}>
-      <div className="mb-5">
+      <div className="mb-5" ref={innerRef}>
         <Image
           src={data.avatar || "/icons/user_placeholder.png"}
           alt="user photo"

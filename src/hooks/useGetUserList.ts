@@ -1,5 +1,6 @@
+"use client"
 import { generateQueryParams } from '@/lib'
-import { useQuery } from '@tanstack/react-query'
+import { keepPreviousData, useQuery } from '@tanstack/react-query'
 
 type Data = {
   page: number,
@@ -17,15 +18,15 @@ type Data = {
 
 const useGetUserList = (params: {[k:string]: any}) => {
   const query = useQuery({
+    placeholderData: keepPreviousData,
     queryFn: async () => {
-      console.log(`${process.env.NEXT_PUBLIC_REGRES_API}/users${"?" + generateQueryParams(params)}`)
       const res = await fetch(`${process.env.NEXT_PUBLIC_REGRES_API}/users${"?" + generateQueryParams(params)}`)
       const data: Data = await res.json()
 
       return data
     },
 
-    queryKey: ['users']
+    queryKey: ['users', params]
   })
 
   return  query

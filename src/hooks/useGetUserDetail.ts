@@ -4,7 +4,7 @@ type Payload = {
   id: number
 }
 
-const useGetUserDetail = ({id}: Payload) => {
+const useGetUserDetail = ({ id }: Payload) => {
   const query = useQuery({
     enabled: !!id, 
     queryFn: async () => {

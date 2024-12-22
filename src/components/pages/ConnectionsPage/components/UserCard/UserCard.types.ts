@@ -1,3 +1,5 @@
+import React from "react";
+
 export type UserCardProps = {
   data: {
     avatar: string;
@@ -8,4 +10,5 @@ export type UserCardProps = {
   };
   onClick: (id: number) => void;
   handleOnEdit: (id: number) => void;
+  innerRef?: React.Ref<HTMLDivElement>
 };

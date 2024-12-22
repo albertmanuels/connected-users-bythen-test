@@ -8,14 +8,20 @@ import { ModalDef } from "@ebay/nice-modal-react";
 import { modal } from "./Connections.constants";
 
 const ConnectionsPage = () => {
-  const { userListData, isLoading, handleOpenDetail, handleOpenEdit } =
-    useConnectionsPage();
+  const {
+    isLoading,
+    handleOpenDetail,
+    handleOpenEdit,
+    userList,
+    observerRef,
+    isFetchingNextPage,
+  } = useConnectionsPage();
 
   return (
     <div className="sm:main-content mt-16 w-full pb-20 md:mt-28">
       {isLoading && <h1 className="text-xl">Loading...</h1>}
       <ul className="grid grid-cols-auto-fill gap-5">
-        {userListData?.map((user) => (
+        {userList?.map((user) => (
           <UserCard
             key={user.id}
             data={user}
@@ -24,6 +30,9 @@ const ConnectionsPage = () => {
           />
         ))}
       </ul>
+
+      {(userList?.length ?? 0) > 0 && <div ref={observerRef} />}
+      {isFetchingNextPage && <h2>Fetching data baru...</h2>}
 
       <ModalDef id={modal.DETAIL_USER} component={DetailUserModal} />
       <ModalDef id={modal.EDIT_USER} component={EditUserModal} />
