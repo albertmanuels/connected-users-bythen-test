@@ -13,7 +13,7 @@
 1. Open terminal, then install depedencies using npm
 ```bash
 npm run install
-``
+```
 
 2. Run project on development mode
 ```bash
