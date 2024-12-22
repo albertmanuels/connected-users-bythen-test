@@ -4,7 +4,7 @@ import React from "react";
 import useDetailUserModal from "./DetailUserModal.hook";
 import { DetailUserModalProps } from "./DetailUserModal.types";
 import { create, useModal } from "@ebay/nice-modal-react";
-import { modal } from "../../Home.constants";
+import { modal } from "../../Connections.constants";
 import closeNiceModal from "@/lib/closeNiceModal";
 
 const DetailUserModal = create((props: DetailUserModalProps) => {

@@ -17,7 +17,7 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
       gridTemplateColumns: {
-        'auto-fill': 'repeat(auto-fill, minmax(260px, 1fr))'
+        'auto-fill': 'repeat(auto-fill, minmax(320px, 1fr))'
       }
     },
   },

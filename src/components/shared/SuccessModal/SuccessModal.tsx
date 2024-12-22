@@ -16,7 +16,7 @@ const SuccessModal = create(
 
     return (
       <Modal
-        isOpen={true}
+        isOpen={visible}
         onClose={handleOnClose}
         className="w-[70vw] px-3 sm:w-[30vw] md:w-[20vw]"
       >
@@ -30,7 +30,7 @@ const SuccessModal = create(
           <p className="mb-2 text-center font-medium">{text}</p>
           <button
             onClick={handleOnClose}
-            className="w-full rounded-md bg-green-500 py-1 font-medium text-white"
+            className="delay-50 w-full rounded-md bg-green-500 py-1 font-medium text-white transition hover:bg-green-600"
           >
             Close
           </button>

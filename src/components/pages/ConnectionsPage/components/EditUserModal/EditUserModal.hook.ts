@@ -6,7 +6,7 @@ import useSaveUserDetail from '@/hooks/useSaveUserDetail';
 import NiceModal from '@ebay/nice-modal-react';
 import { globalModalId } from '@/components/shared/GlobalModalPortal/GlobalModalPortal.constants';
 import closeNiceModal from '@/lib/closeNiceModal';
-import { modal } from '../../Home.constants';
+import { modal } from '../../Connections.constants';
 
 const useEditUserModal = (props: EditUserModalProps) => {
   const { id } = props
@@ -48,9 +48,6 @@ const useEditUserModal = (props: EditUserModalProps) => {
     }
   }, [isSuccess, data])
 
-
-
-
   const handleOnSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -77,12 +74,12 @@ const useEditUserModal = (props: EditUserModalProps) => {
   }
 
   return {
-    userFormData,
-    setUseFormData,
-    data,
-    handleOnSubmit,
     handleOnClose,
-    isSaveLoading
+    handleOnSubmit,
+    data,
+    setUseFormData,
+    userFormData,
+    isSaveLoading,
   }
 }
 

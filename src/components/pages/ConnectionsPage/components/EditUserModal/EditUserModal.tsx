@@ -4,7 +4,7 @@ import React from "react";
 import { EditUserModalProps } from "./EditUserModal.types";
 import useEditUserModal from "./EditUserModal.hook";
 import { create, useModal } from "@ebay/nice-modal-react";
-import { modal } from "../../Home.constants";
+import { modal } from "../../Connections.constants";
 import closeNiceModal from "@/lib/closeNiceModal";
 
 const EditUserModal = create((props: EditUserModalProps) => {
