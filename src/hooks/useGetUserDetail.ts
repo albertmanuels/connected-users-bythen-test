@@ -1,3 +1,4 @@
+import { ONE_MINUTE } from '@/constants'
 import { useQuery } from '@tanstack/react-query'
 
 type Payload = {
@@ -13,7 +14,8 @@ const useGetUserDetail = ({ id }: Payload) => {
 
       return data.data
     },
-    queryKey: ['user', id]
+    queryKey: ['user', id],
+    staleTime: ONE_MINUTE
   })
 
   return query

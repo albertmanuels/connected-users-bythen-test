@@ -6,6 +6,7 @@ import DetailUserModal from "./components/DetailUserModal";
 import EditUserModal from "./components/EditUserModal";
 import { ModalDef } from "@ebay/nice-modal-react";
 import { modal } from "./Connections.constants";
+import Spinner from "@/components/shared/Motion/Spinner";
 
 const ConnectionsPage = () => {
   const {
@@ -19,7 +20,7 @@ const ConnectionsPage = () => {
 
   return (
     <div className="sm:main-content mt-16 w-full pb-20 md:mt-28">
-      {isLoading && <h1 className="text-xl">Loading...</h1>}
+      {isLoading && <Spinner width={50} height={50} />}
       <ul className="grid grid-cols-auto-fill gap-5">
         {userList?.map((user) => (
           <UserCard
@@ -32,7 +33,11 @@ const ConnectionsPage = () => {
       </ul>
 
       {(userList?.length ?? 0) > 0 && <div ref={observerRef} />}
-      {isFetchingNextPage && <h2>Fetching data baru...</h2>}
+      {isFetchingNextPage && (
+        <div className="mt-10 flex w-full justify-center">
+          <Spinner width={50} height={50} />
+        </div>
+      )}
 
       <ModalDef id={modal.DETAIL_USER} component={DetailUserModal} />
       <ModalDef id={modal.EDIT_USER} component={EditUserModal} />

@@ -6,6 +6,7 @@ import { DetailUserModalProps } from "./DetailUserModal.types";
 import { create, useModal } from "@ebay/nice-modal-react";
 import { modal } from "../../Connections.constants";
 import closeNiceModal from "@/lib/closeNiceModal";
+import UserPlaceholderImg from "@/public/icons/user_placeholder.png";
 
 const DetailUserModal = create((props: DetailUserModalProps) => {
   const { data } = useDetailUserModal(props);
@@ -18,7 +19,7 @@ const DetailUserModal = create((props: DetailUserModalProps) => {
         <h3 className="mb-4 text-center text-xl">Detail Information</h3>
         <div className="mb-5">
           <Image
-            src={data?.avatar || ""}
+            src={data?.avatar || UserPlaceholderImg}
             alt="user photo"
             width={80}
             height={80}

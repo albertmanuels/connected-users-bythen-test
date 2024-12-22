@@ -26,9 +26,7 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
                 <Sidebar />
                 <div className="h-[100vh] w-full flex-col overflow-x-hidden">
                   <Header />
-                  <main className="w-full overflow-x-hidden px-4">
-                    {children}
-                  </main>
+                  <main className="w-full overflow-x-hidden">{children}</main>
                 </div>
               </div>
               <GlobalModalPortal />

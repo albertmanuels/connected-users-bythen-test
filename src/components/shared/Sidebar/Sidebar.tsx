@@ -20,6 +20,9 @@ const menus = [
 const Sidebar = () => {
   const { isSidebarShow, setIsSidebarShow } = useAppContext();
 
+  const onClose = () => setIsSidebarShow(false);
+  const onToggle = () => setIsSidebarShow(!isSidebarShow);
+
   return (
     <div className="relative min-h-[100vh]">
       <div
@@ -32,14 +35,15 @@ const Sidebar = () => {
         <aside
           className={`flex h-full flex-col break-words sm:relative ${isSidebarShow ? "px-4" : "px-0"}`}
         >
-          <button
-            onClick={() => setIsSidebarShow(!isSidebarShow)}
-            className="mb-2 mb-8 mt-1 block sm:hidden"
-          >
+          <button onClick={onToggle} className="mb-2 mb-8 mt-1 block sm:hidden">
             <MdMenu color="white" size={30} />
           </button>
 
-          <Link href="/" className="md:text-md mb-10 text-sm text-white">
+          <Link
+            href="/"
+            className="md:text-md mb-10 text-sm text-white"
+            onClick={onClose}
+          >
             <MdOutlineVerifiedUser
               size={40}
               className="mr-2 inline-block"
@@ -53,6 +57,7 @@ const Sidebar = () => {
                 <Link
                   href={menu.href}
                   className="md:text-md text-sm text-white"
+                  onClick={onClose}
                 >
                   <menu.logo
                     size={40}
@@ -68,7 +73,7 @@ const Sidebar = () => {
 
         <button
           className="absolute bottom-4 right-[50%] flex hidden text-white sm:inline-block"
-          onClick={() => setIsSidebarShow(!isSidebarShow)}
+          onClick={onToggle}
         >
           <MdChevronLeft className="inline-block" size={25} />
           {isSidebarShow ? "Hide" : ""}
@@ -77,7 +82,7 @@ const Sidebar = () => {
       {isSidebarShow && (
         <div
           className="z-8 fixed inset-0 w-full bg-black bg-opacity-50 backdrop-blur-sm sm:hidden"
-          onClick={() => setIsSidebarShow(false)}
+          onClick={onClose}
         />
       )}
     </div>

@@ -6,12 +6,20 @@ import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 
 const useConnectionsPage = () => {
+
   const { ref: observerRef, inView } = useInView({
     threshold: 1
   });
 
   const { data, fetchNextPage, isFetchingNextPage, hasNextPage, isLoading } =
     useGetInfiniteUserList();
+
+  useEffect(() => {
+    if(inView && hasNextPage) {
+      fetchNextPage()
+    }
+
+  }, [inView, hasNextPage, fetchNextPage])
 
   const userList = data?.pages.map((users) => users.data).flat();
 
@@ -22,14 +30,6 @@ const useConnectionsPage = () => {
   const handleOpenEdit = (id: number) => {
     NiceModal.show(modal.EDIT_USER, { id })
   }
-
-  useEffect(() => {
-    if(inView && hasNextPage) {
-      console.log(inView)
-      fetchNextPage()
-    }
-
-  }, [inView, hasNextPage, fetchNextPage])
 
   return {
     userList, 

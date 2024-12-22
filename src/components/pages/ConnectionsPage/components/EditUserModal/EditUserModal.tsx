@@ -6,6 +6,7 @@ import useEditUserModal from "./EditUserModal.hook";
 import { create, useModal } from "@ebay/nice-modal-react";
 import { modal } from "../../Connections.constants";
 import closeNiceModal from "@/lib/closeNiceModal";
+import Spinner from "@/components/shared/Motion/Spinner";
 
 const EditUserModal = create((props: EditUserModalProps) => {
   const modalId = modal.EDIT_USER;
@@ -108,9 +109,9 @@ const EditUserModal = create((props: EditUserModalProps) => {
             </button>
             <button
               type="submit"
-              className="w-full rounded-md bg-green-500 px-4 py-1 hover:bg-green-600"
+              className="flex w-full items-center justify-center rounded-md bg-green-500 px-4 py-1 text-center hover:bg-green-600"
             >
-              Save
+              {isSaveLoading ? <Spinner width={15} height={15} /> : "Save"}
             </button>
           </div>
         </form>
