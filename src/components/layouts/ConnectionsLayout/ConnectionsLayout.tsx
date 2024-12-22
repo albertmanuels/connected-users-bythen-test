@@ -6,7 +6,7 @@ import React, { ReactNode } from "react";
 const ConnectionsLayout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="h-[100vh] w-full flex-col overflow-x-hidden">
-      <Header>
+      <Header className="py-2">
         <SearchBar />
       </Header>
       <main className="w-full overflow-x-hidden px-4">{children}</main>

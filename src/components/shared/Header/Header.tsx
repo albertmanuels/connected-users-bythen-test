@@ -2,12 +2,18 @@ import { useAppContext } from "@/components/layouts/AppLayout/App.context";
 import React, { ReactNode } from "react";
 import { MdMenu } from "react-icons/md";
 
-const Header = ({ children }: { children?: ReactNode }) => {
+const Header = ({
+  children,
+  className,
+}: {
+  children?: ReactNode;
+  className?: string;
+}) => {
   const { isSidebarShow, setIsSidebarShow } = useAppContext();
 
   return (
     <header
-      className={`fixed flex w-full items-center bg-slate-200 px-4 py-2 sm:pl-4 ${isSidebarShow ? "z-[-1] sm:z-auto" : "z-auto"}`}
+      className={`fixed flex w-full items-center bg-slate-200 px-4 sm:pl-4 ${isSidebarShow ? "z-[-1] sm:z-auto" : "z-auto"} ${className}`}
     >
       <button
         className={`mr-4 block sm:hidden`}
