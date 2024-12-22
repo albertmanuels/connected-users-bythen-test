@@ -11,10 +11,13 @@
   "dependencies": {
     "@next/eslint-plugin-next": "^15.1.2",
     "@tanstack/react-query": "^5.62.8",
+    "dotenv": "^16.4.7",
+    "framer-motion": "^11.15.0",
     "motion": "^11.15.0",
     "next": "14.2.15",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-icons": "^5.4.0"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -1,15 +1,19 @@
 import { useAppContext } from "@/components/layouts/AppLayout/App.context";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import VerifiedLogo from "@/public/icons/verified.svg";
-import MenuIcon from "@/public/icons/menu.svg";
+
+import {
+  MdChevronLeft,
+  MdMenu,
+  MdOutlineVerifiedUser,
+  MdPeople,
+} from "react-icons/md";
 
 const menus = [
   {
     title: "Connections",
     href: "/connections",
-    logo: VerifiedLogo,
+    logo: MdPeople,
   },
 ];
 
@@ -17,58 +21,65 @@ const Sidebar = () => {
   const { isSidebarShow, setIsSidebarShow } = useAppContext();
 
   return (
-    <div
-      className={`min-h-[100vh] bg-pink-500 ${
-        isSidebarShow
-          ? "fixed z-10 w-[74vw] py-2 sm:relative sm:z-auto sm:block sm:w-fit sm:min-w-fit"
-          : "hidden sm:block sm:w-[60px] sm:text-center"
-      } `}
-    >
-      <aside className={`h-full break-words px-4 sm:relative`}>
-        <button
-          onClick={() => setIsSidebarShow(!isSidebarShow)}
-          className="mb-2 block sm:hidden"
+    <div className="relative min-h-[100vh]">
+      <div
+        className={`min-h-[100vh] bg-indigo-950 py-2 ${
+          isSidebarShow
+            ? "fixed z-10 w-[74vw] sm:relative sm:z-auto sm:inline-block sm:w-[20vw] sm:min-w-fit"
+            : "hidden sm:block sm:w-[60px] sm:text-center"
+        } `}
+      >
+        <aside
+          className={`flex h-full flex-col break-words sm:relative ${isSidebarShow ? "px-4" : "px-0"}`}
         >
-          <Image src={MenuIcon} width={30} height={30} alt="menu icon" />
-        </button>
+          <button
+            onClick={() => setIsSidebarShow(!isSidebarShow)}
+            className="mb-2 mb-8 mt-1 block sm:hidden"
+          >
+            <MdMenu color="white" size={30} />
+          </button>
 
-        <Link href="/" className="flex items-center gap-2">
-          <div className="block">
-            <Image
-              src={VerifiedLogo}
-              alt="logo"
-              width={0}
-              height={0}
-              className="inline-block h-[40px] w-[40px]"
+          <Link href="/" className="md:text-md mb-10 text-sm text-white">
+            <MdOutlineVerifiedUser
+              size={40}
+              className="mr-2 inline-block"
+              color="white"
             />
-          </div>
-
-          {isSidebarShow && "Reqmi"}
-        </Link>
-        <ul>
-          {menus.map((menu) => (
-            <li key={menu.title} className="mb-4 inline-block">
-              <Link href={menu.href}>
-                <Image
-                  src={menu.logo}
-                  alt="link icon"
-                  width={40}
-                  height={40}
-                  className="mr-2 inline-block"
-                />
-                {isSidebarShow && menu.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
+            {isSidebarShow && "Reqmi"}
+          </Link>
+          <ul>
+            {menus.map((menu) => (
+              <li key={menu.title} className="mb-4 inline-block">
+                <Link
+                  href={menu.href}
+                  className="md:text-md text-sm text-white"
+                >
+                  <menu.logo
+                    size={40}
+                    className="mr-2 inline-block"
+                    color="white"
+                  />
+                  {isSidebarShow && menu.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </aside>
 
         <button
-          className="relative bottom-0 left-0 hidden sm:block"
+          className="absolute bottom-4 right-[50%] flex hidden text-white sm:inline-block"
           onClick={() => setIsSidebarShow(!isSidebarShow)}
         >
-          Hide
+          <MdChevronLeft className="inline-block" size={25} />
+          {isSidebarShow ? "Hide" : ""}
         </button>
-      </aside>
+      </div>
+      {isSidebarShow && (
+        <div
+          className="z-8 fixed inset-0 w-full bg-black bg-opacity-50 backdrop-blur-sm sm:hidden"
+          onClick={() => setIsSidebarShow(false)}
+        />
+      )}
     </div>
   );
 };

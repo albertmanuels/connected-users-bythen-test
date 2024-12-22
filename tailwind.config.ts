@@ -7,11 +7,18 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+  
     extend: {
+      screens: {
+        "xs":  "max-width(540px)"
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      gridTemplateColumns: {
+        'auto-fill': 'repeat(auto-fill, minmax(260px, 1fr))'
+      }
     },
   },
   plugins: [],

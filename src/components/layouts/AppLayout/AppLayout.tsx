@@ -21,9 +21,9 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
           <AppProvider>
             <div className="flex h-full">
               <Sidebar />
-              <div className="w-full flex-col overflow-x-hidden">
+              <div className="h-[100vh] w-full flex-col overflow-x-hidden">
                 <Header />
-                <main className="w-full px-4 overflow-x-hidden">
+                <main className="w-full overflow-x-hidden px-4">
                   {children}
                 </main>
               </div>

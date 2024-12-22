@@ -57,3 +57,11 @@ h6 {
   isolation: isolate;
 }
 
+.main-content {
+  min-height: calc(100vh - 46px );
+}
+
+.card {
+  @apply flex flex-col flex-wrap justify-center shadow-md p-4 rounded-lg hover:cursor-pointer
+}
+
