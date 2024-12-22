@@ -1,1 +1,1 @@
-export {default} from "./ConnectionsLayout"
+export { default } from "./ConnectionsLayout"

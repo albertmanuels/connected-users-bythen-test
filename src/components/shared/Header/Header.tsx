@@ -2,7 +2,7 @@ import { useAppContext } from "@/components/layouts/AppLayout/App.context";
 import React, { ReactNode } from "react";
 import { MdMenu } from "react-icons/md";
 
-const Header = ({ children }: { children: ReactNode }) => {
+const Header = ({ children }: { children?: ReactNode }) => {
   const { isSidebarShow, setIsSidebarShow } = useAppContext();
 
   return (
