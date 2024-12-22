@@ -12,7 +12,7 @@ const useSaveUserDetail = ({
 }) => {
   const mutation = useMutation({
     mutationFn: async (payload: Payload) => {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_REGRES_API}/users/${payload.id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API}/users/${payload.id}`, {
         method: "POST",
         body: JSON.stringify({
           name: payload.name,

@@ -5,7 +5,7 @@ const useGetInfiniteUserList = () => {
     placeholderData: keepPreviousData,
     queryKey: ['user-list'],
     queryFn: async ({ pageParam }: {pageParam: number}) => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_REGRES_API}/users?page=${pageParam}`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API}/users?page=${pageParam}`)
     const data = res.json()
 
     return data

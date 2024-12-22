@@ -9,7 +9,7 @@ const useGetUserDetail = ({ id }: Payload) => {
   const query = useQuery({
     enabled: !!id, 
     queryFn: async () => {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_REGRES_API}/users/${id}`)
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API}/users/${id}`)
       const data = await res.json()
 
       return data.data
