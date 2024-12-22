@@ -57,8 +57,3 @@ h6 {
   isolation: isolate;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
