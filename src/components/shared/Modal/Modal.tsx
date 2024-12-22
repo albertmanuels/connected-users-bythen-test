@@ -8,7 +8,9 @@ type ModalProps = {
 };
 
 const Modal = ({ isOpen, onClose, children, className }: ModalProps) => {
-  if (!isOpen) null;
+  if (!isOpen) {
+    return null;
+  }
 
   const handleClose = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target instanceof HTMLDivElement && e.target.id === "modal-wrapper") {

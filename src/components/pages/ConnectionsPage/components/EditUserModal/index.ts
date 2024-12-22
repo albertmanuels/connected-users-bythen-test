@@ -1,1 +1,1 @@
-export {default} from "./EditUserModal"
+export { default } from "./EditUserModal"

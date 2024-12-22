@@ -2,6 +2,7 @@
   "extends": ["next/core-web-vitals", "next/typescript"],
   "rules": {
   "object-curly-spacing": [1, "always"],
-  "@typescript-eslint/no-explicit-any": 1
+  "@typescript-eslint/no-explicit-any": 0,
+  "no-unused-expressions": 0
   }
 }
