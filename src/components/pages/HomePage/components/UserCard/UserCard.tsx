@@ -14,7 +14,7 @@ const UserCard = (props: UserCardProps) => {
           alt="user photo"
           width={80}
           height={80}
-          className="mx-auto rounded-full"
+          className="avatar mx-auto"
         />
       </div>
 

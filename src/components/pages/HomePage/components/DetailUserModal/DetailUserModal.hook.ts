@@ -3,11 +3,9 @@ import { DetailUserModalProps } from "./DetailUserModal.types"
 
 
 const useDetailUserModal = (props: DetailUserModalProps) => {
-  const {id} = props
+  const { id } = props
 
-  const {data} = useGetUserDetail({id})
-
-  console.log('data: ', data)
+  const { data } = useGetUserDetail({ id })
 
   return {
     data

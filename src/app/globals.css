@@ -65,3 +65,7 @@ h6 {
   @apply flex flex-col flex-wrap justify-center shadow-md p-4 rounded-lg hover:cursor-pointer
 }
 
+.avatar {
+  @apply aspect-square rounded-full object-cover
+}
+

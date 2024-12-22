@@ -5,6 +5,8 @@ import { Roboto } from "next/font/google";
 import Sidebar from "@/components/shared/Sidebar";
 import Header from "@/components/shared/Header";
 import { AppProvider } from "./App.context";
+import NiceModal from "@ebay/nice-modal-react";
+import GlobalModalPortal from "@/components/shared/GlobalModalPortal/GlobalModalPortal";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -19,15 +21,18 @@ const AppLayout = ({ children }: { children: ReactNode }) => {
       <body className={`${roboto.className} antialiased`}>
         <QueryClientProvider client={queryClient}>
           <AppProvider>
-            <div className="flex h-full">
-              <Sidebar />
-              <div className="h-[100vh] w-full flex-col overflow-x-hidden">
-                <Header />
-                <main className="w-full overflow-x-hidden px-4">
-                  {children}
-                </main>
+            <NiceModal.Provider>
+              <div className="flex h-full">
+                <Sidebar />
+                <div className="h-[100vh] w-full flex-col overflow-x-hidden">
+                  <Header />
+                  <main className="w-full overflow-x-hidden px-4">
+                    {children}
+                  </main>
+                </div>
               </div>
-            </div>
+              <GlobalModalPortal />
+            </NiceModal.Provider>
           </AppProvider>
         </QueryClientProvider>
       </body>

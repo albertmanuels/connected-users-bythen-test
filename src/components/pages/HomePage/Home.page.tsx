@@ -3,37 +3,30 @@ import React from "react";
 import UserCard from "./components/UserCard";
 import useHomePage from "./Home.hook";
 import DetailUserModal from "./components/DetailUserModal";
+import EditUserModal from "./components/EditUserModal";
+import { ModalDef } from "@ebay/nice-modal-react";
+import { modal } from "./Home.constants";
 
 const HomePage = () => {
-  const { userListData, isLoading, modal, setModal } = useHomePage();
+  const { userListData, isLoading, handleOpenDetail, handleOpenEdit } =
+    useHomePage();
 
   return (
     <div className="sm:main-content mt-16 w-full pb-20">
-      <ul className="grid-cols-auto-fill grid gap-5">
-        {userListData?.map((user, idx) => (
+      {isLoading && <h1 className="text-xl">Loading...</h1>}
+      <ul className="grid grid-cols-auto-fill gap-5">
+        {userListData?.map((user) => (
           <UserCard
+            key={user.id}
             data={user}
-            handleOnEdit={() => {}}
-            onClick={(id) => {
-              setModal({
-                isOpen: true,
-                id: Number(id),
-              });
-            }}
+            handleOnEdit={(id) => handleOpenEdit(id)}
+            onClick={(id) => handleOpenDetail(id)}
           />
         ))}
       </ul>
 
-      <DetailUserModal
-        id={Number(modal.id)}
-        isOpen={modal.isOpen}
-        setOpen={(isOpen) => {
-          setModal({
-            isOpen,
-            id: modal.id,
-          });
-        }}
-      />
+      <ModalDef id={modal.DETAIL_USER} component={DetailUserModal} />
+      <ModalDef id={modal.EDIT_USER} component={EditUserModal} />
     </div>
   );
 };
