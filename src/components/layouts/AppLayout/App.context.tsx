@@ -15,7 +15,7 @@ type AppContextProps = {
 export const AppContext = createContext<AppContextProps | undefined>(undefined);
 
 export const AppProvider = ({ children }: { children: ReactNode }) => {
-  const [isSidebarShow, setIsSidebarShow] = useState(true);
+  const [isSidebarShow, setIsSidebarShow] = useState(false);
 
   return (
     <AppContext.Provider value={{ isSidebarShow, setIsSidebarShow }}>
