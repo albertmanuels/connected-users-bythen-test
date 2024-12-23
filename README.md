@@ -18,7 +18,7 @@ Hopefully there will be any good news from the reviewer.
 - Regres API
 
 ## Architecture
-
+```
 ├── public                  # Static file (img, icon, etc)
 ├── src
 │   ├── app                 # routing and layout
@@ -30,6 +30,7 @@ Hopefully there will be any good news from the reviewer.
 │   ├── hooks               # global hook to query or mutations
 │   ├── lib                 # reusable helper functions
 └── ...
+```
 
 ## Setup
 1. Open terminal, then install depedencies using npm
