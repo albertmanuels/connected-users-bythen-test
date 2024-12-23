@@ -1,6 +1,6 @@
 # Connected Users Bythen Test
 This project is a mini social network platform similar to LinkedIn, where user can see their connections.
-The data that have been use in this project is fake data which fetched from https://reqres.in/
+The data that have been use in this project is fake data which fetched from https://reqres.in/api
 
 Live website: https://connected-users-bythen-test.vercel.app
 
