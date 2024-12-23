@@ -36,7 +36,7 @@ Hopefully there will be any good news from the reviewer.
 ## Setup
 1. Open terminal, then install depedencies using npm
 ```bash
-npm run install
+npm install
 ```
 
 2. Run project on development mode
