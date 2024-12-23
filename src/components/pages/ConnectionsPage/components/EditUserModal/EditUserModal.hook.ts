@@ -22,7 +22,7 @@ const useEditUserModal = (props: EditUserModalProps) => {
     avatar: ""
   })
 
-  const { data, isSuccess } = useGetUserDetail({ id });
+  const { data, isSuccess, isLoading } = useGetUserDetail({ id });
 
   const { mutate, isPending: isSaveLoading } = useSaveUserDetail({
     onSuccess: () => {
@@ -80,6 +80,7 @@ const useEditUserModal = (props: EditUserModalProps) => {
     setUseFormData,
     userFormData,
     isSaveLoading,
+    isLoading
   }
 }
 

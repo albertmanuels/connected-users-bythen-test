@@ -5,10 +5,11 @@ import { DetailUserModalProps } from "./DetailUserModal.types"
 const useDetailUserModal = (props: DetailUserModalProps) => {
   const { id } = props
 
-  const { data } = useGetUserDetail({ id })
+  const { data, isLoading } = useGetUserDetail({ id })
 
   return {
-    data
+    data,
+    isLoading
   }
 }
 

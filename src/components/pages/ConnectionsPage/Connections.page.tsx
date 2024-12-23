@@ -20,7 +20,12 @@ const ConnectionsPage = () => {
 
   return (
     <div className="sm:main-content mt-16 w-full pb-20 md:mt-28">
-      {isLoading && <Spinner width={50} height={50} />}
+      {isLoading && (
+        <div className="flex h-screen items-center justify-center">
+          <Spinner width={50} height={50} />
+        </div>
+      )}
+
       <ul className="grid grid-cols-auto-fill gap-5">
         {userList?.map((user) => (
           <UserCard

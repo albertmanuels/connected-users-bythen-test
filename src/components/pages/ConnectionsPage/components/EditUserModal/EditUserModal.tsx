@@ -6,6 +6,7 @@ import useEditUserModal from "./EditUserModal.hook";
 import { create, useModal } from "@ebay/nice-modal-react";
 import { modal } from "../../Connections.constants";
 import closeNiceModal from "@/lib/closeNiceModal";
+import UserPlaceholderImg from "@/public/icons/user_placeholder.png";
 import Spinner from "@/components/shared/Motion/Spinner";
 
 const EditUserModal = create((props: EditUserModalProps) => {
@@ -19,6 +20,7 @@ const EditUserModal = create((props: EditUserModalProps) => {
     setUseFormData,
     userFormData,
     isSaveLoading,
+    isLoading,
   } = useEditUserModal(props);
 
   return (
@@ -29,7 +31,7 @@ const EditUserModal = create((props: EditUserModalProps) => {
         <form onSubmit={handleOnSubmit}>
           <section className="mb-5">
             <Image
-              src={data?.avatar || ""}
+              src={data?.avatar || UserPlaceholderImg}
               alt="user photo"
               width={80}
               height={80}
@@ -49,13 +51,14 @@ const EditUserModal = create((props: EditUserModalProps) => {
                   id="firstName"
                   type="text"
                   value={userFormData.first_name}
+                  placeholder="First Name"
                   onChange={(e) => {
                     setUseFormData((prev) => ({
                       ...prev,
                       first_name: e.target.value,
                     }));
                   }}
-                  disabled={isSaveLoading}
+                  disabled={isSaveLoading || isLoading}
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -68,13 +71,14 @@ const EditUserModal = create((props: EditUserModalProps) => {
                   id="lastName"
                   type="text"
                   value={userFormData.last_name}
+                  placeholder="Last Name"
                   onChange={(e) => {
                     setUseFormData((prev) => ({
                       ...prev,
                       last_name: e.target.value,
                     }));
                   }}
-                  disabled={isSaveLoading}
+                  disabled={isSaveLoading || isLoading}
                 />
               </div>
               <div className="flex flex-col gap-2">
@@ -87,13 +91,14 @@ const EditUserModal = create((props: EditUserModalProps) => {
                   id="email"
                   type="email"
                   value={userFormData.email}
+                  placeholder="Email"
                   onChange={(e) => {
                     setUseFormData((prev) => ({
                       ...prev,
                       email: e.target.value,
                     }));
                   }}
-                  disabled={isSaveLoading}
+                  disabled={isSaveLoading || isLoading}
                 />
               </div>
             </div>
@@ -108,6 +113,7 @@ const EditUserModal = create((props: EditUserModalProps) => {
               Close
             </button>
             <button
+              disabled={isLoading}
               type="submit"
               className="flex w-full items-center justify-center rounded-md bg-green-500 px-4 py-1 text-center hover:bg-green-600"
             >
