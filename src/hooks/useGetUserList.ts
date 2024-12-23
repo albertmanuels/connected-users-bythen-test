@@ -20,7 +20,7 @@ const useGetUserList = (params: {[k:string]: any}) => {
   const query = useQuery({
     placeholderData: keepPreviousData,
     queryFn: async () => {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_API}/users${"?" + generateQueryParams(params)}`)
+      const res = await fetch(`${process.env.NEXT_PUBLIC_REGRES_API}/users${"?" + generateQueryParams(params)}`)
       const data: Data = await res.json()
 
       return data
