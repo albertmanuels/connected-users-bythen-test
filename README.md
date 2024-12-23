@@ -7,7 +7,7 @@ The data that have been use in this project is fake data which fetched from http
 The purpose of this project is to complete the first technical test as Frontend Developer at Bythen.ai. 
 Hopefully there will be any good news from the reviewer.
 
-### Tech Stack
+## Tech Stack
 - Next.js 14.2 (app route)
 - TypeScript
 - React Tanstack Query
