@@ -20,7 +20,7 @@ npm run install
 npm run dev
 ```
 
-3. Please do build first before commiting. This is to check if there any errors on build time
+3. Run build. This is to check if there any errors on build time
 ```bash
 npm run build
 ```
