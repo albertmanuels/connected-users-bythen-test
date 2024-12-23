@@ -1,4 +1,5 @@
-## Connected Users Bythen Test
+# Connected Users Bythen Test
+
 This project is a mini social network platform similar to LinkedIn, where user can see their connections.
 The data that have been use in this project is fake data which fetched from https://reqres.in/
 
@@ -7,7 +8,7 @@ The purpose of this project is to complete the first technical test as Frontend 
 Hopefully there will be any good news from the reviewer.
 
 ### Tech Stack
-- Next.js 14.2
+- Next.js 14.2 (app route)
 - TypeScript
 - React Tanstack Query
 - TailwindCSS
@@ -18,6 +19,17 @@ Hopefully there will be any good news from the reviewer.
 
 ## Architecture
 
+├── public                  # Static file (img, icon, etc)
+├── src
+│   ├── app                 # routing and layout
+│   ├── components          # all components related, includes layouts, pages, and shared   
+|   |    └── layouts        # layout-level components
+|   |    └── pages          # page-level components
+|   |    └── shared         # global components or shared components
+│   ├── constants           # global constants
+│   ├── hooks               # global hook to query or mutations
+│   ├── lib                 # reusable helper functions
+└── ...
 
 ## Setup
 1. Open terminal, then install depedencies using npm
